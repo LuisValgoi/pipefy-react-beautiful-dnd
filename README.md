@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+# Status
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- 
 
-## Available Scripts
+# Objective
 
-In the project directory, you can run:
+To copy the pipefy user interface to use the `react-beautiful-dnd`.
 
-### `yarn start`
+# Dependencies / Tooling
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- `cra`: to create the project.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- `styled-components`: to style the components.
 
-### `yarn test`
+- `react-icons`: to use icons in the app (includes material-icons, font-awesome, ionicals, etc).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Notes CSS
 
-### `yarn build`
+- `box-sizing: border-box;`: to not extrapolate the element's height and width.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- `avatars.adorable.io`: to create sample avatars.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- `flex: 0 0 320px;`: combination of `flex-grow` + `flex-shrink` + `flex-basis`.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- `flex-grow`: the ability to grow amoung their "brothers". Value 0: uses the fixed width.
 
-### `yarn eject`
+- `flex-shrink`: the ability to shrink once the screen is small. Value 0: uses the fixed width.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- `flex-basis`: determines the base width or height of the element. Width: once `d-flex-row`. Height: once `d-flex-column`.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- `& + div {...}`: css selector which gets all the `div` which has a prev `div`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- `color: ... rgba(230, 230, 245, 0.4)`: to add opacity, uses `rgba`.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+# Notes Architecture
 
-## Learn More
+- `Create a new or keep in the same component?`: when we picture that that POC can be decoupled from the rest of the app, then we create (or, when it works separately).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- `import { Container } from './styles'`: to embed the div and the style of your component.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Notes Drag And Drop
 
-### Code Splitting
+- 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+# Fonts Used
 
-### Analyzing the Bundle Size
+- [roboto](https://fonts.google.com/specimen/Roboto)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+# Reference
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+https://www.youtube.com/watch?v=awRtgpRsdTQ&ab_channel=Rocketseat
