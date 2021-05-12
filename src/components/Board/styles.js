@@ -12,4 +12,8 @@ export const Columns = styled.div`
 
   flex-direction: column;
   align-items: center;
+
+  & + div {
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+  }
 `;

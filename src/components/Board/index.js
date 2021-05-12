@@ -6,6 +6,7 @@ import * as Services from "../../services/api";
 
 import Lane from "../Lane";
 import Title from "../Title";
+import Card from "../Card";
 
 const onDragEnd = () => {};
 
@@ -14,15 +15,19 @@ export default function Board() {
   const [lists, setList] = useState(data);
 
   return (
-    <Styles.Board>
-      <DragDropContext onDragEnd={(result) => onDragEnd(result, lists, setList)}>
-        {lists.map((list, index) => (
+    <DragDropContext onDragEnd={(result) => onDragEnd(result, lists, setList)}>
+      <Styles.Board>
+        {lists.map((list) => (
           <Styles.Columns>
             <Title data={list} />
-            <Lane key={list.title} listIndex={index} data={list} />
+            <Lane key={list.title} droppableId={list.title} data={list}>
+              {list.cards.map((item, index) => (
+                <Card key={item.id} index={index} data={item} />
+              ))}
+            </Lane>
           </Styles.Columns>
         ))}
-      </DragDropContext>
-    </Styles.Board>
+      </Styles.Board>
+    </DragDropContext>
   );
 }

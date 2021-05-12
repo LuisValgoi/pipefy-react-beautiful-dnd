@@ -1,17 +1,25 @@
 import React from "react";
+import { Droppable } from "react-beautiful-dnd";
 
 import * as Styles from "./styles";
 
-import Card from "../Card";
-
-export default function Lane({ data, listIndex }) {
+export default function Lane({ children, data, droppableId }) {
   return (
-    <Styles.Container done={data.done}>
-      <ul>
-        {data.cards.map((card, index) => (
-          <Card key={card.id} listIndex={listIndex} index={index} data={card} />
-        ))}
-      </ul>
-    </Styles.Container>
+    <Droppable droppableId={droppableId}>
+      {(provided, snapshot) => (
+        <LaneContent data={data} snapshot={snapshot} provided={provided}>
+          {children}
+          {provided.placeholder}
+        </LaneContent>
+      )}
+    </Droppable>
   );
 }
+
+const LaneContent = ({ children, data, provided, snapshot }) => {
+  return (
+    <Styles.Container done={data.done} {...provided.droppableProps} isDraggingOver={snapshot.isDraggingOver} ref={provided.innerRef}>
+      <ul>{children}</ul>
+    </Styles.Container>
+  );
+};
