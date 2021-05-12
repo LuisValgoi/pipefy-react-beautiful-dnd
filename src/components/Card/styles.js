@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 export const Container = styled.div`
   position: relative;
   background: #fff;
+  width: 250px;
   border-radius: 5px;
   margin-bottom: 10px;
   padding: 15px;
@@ -12,7 +13,7 @@ export const Container = styled.div`
 
   header {
     position: absolute;
-    top: -22px;
+    top: -8px;
     left: 15px;
   }
 

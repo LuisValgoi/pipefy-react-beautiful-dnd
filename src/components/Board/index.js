@@ -4,7 +4,8 @@ import { DragDropContext } from "react-beautiful-dnd";
 import * as Styles from "./styles";
 import * as Services from "../../services/api";
 
-import List from "../List";
+import Lane from "../Lane";
+import Title from "../Title";
 
 const onDragEnd = () => {};
 
@@ -13,12 +14,15 @@ export default function Board() {
   const [lists, setList] = useState(data);
 
   return (
-    <Styles.Container>
+    <Styles.Board>
       <DragDropContext onDragEnd={(result) => onDragEnd(result, lists, setList)}>
         {lists.map((list, index) => (
-          <List key={list.title} listIndex={index} data={list} />
+          <Styles.Columns>
+            <Title data={list} />
+            <Lane key={list.title} listIndex={index} data={list} />
+          </Styles.Columns>
         ))}
       </DragDropContext>
-    </Styles.Container>
+    </Styles.Board>
   );
 }
