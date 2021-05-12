@@ -9,7 +9,48 @@ import Title from "../Title";
 import Card from "../Card";
 import Column from "../Column";
 
-const onDragEnd = () => {};
+const isDraggingToOutside = (result) => !result.destination;
+
+const isDraggingToTheSameList = (source, destination) => source.droppableId === destination.droppableId;
+
+const isDraggingToOtherList = (source, destination) => source.droppableId !== destination.droppableId;
+
+const onDragEnd = (result, columns, setColumns) => {
+  if (isDraggingToOutside(result)) return;
+
+  const { source, destination } = result;
+  const sourceColumn = columns[source.droppableId];
+  const destColumn = columns[destination.droppableId];
+  const sourceItems = [...sourceColumn.cards];
+  const destItems = [...destColumn.cards];
+
+  const [removed] = sourceItems.splice(source.index, 1);
+  if (isDraggingToTheSameList(source, destination)) {
+    sourceItems.splice(destination.index, 0, removed);
+    setColumns({
+      ...columns,
+      [source.droppableId]: {
+        ...sourceColumn,
+        cards: sourceItems,
+      },
+    });
+  }
+
+  if (isDraggingToOtherList(source, destination)) {
+    destItems.splice(destination.index, 0, removed);
+    setColumns({
+      ...columns,
+      [source.droppableId]: {
+        ...sourceColumn,
+        cards: sourceItems,
+      },
+      [destination.droppableId]: {
+        ...destColumn,
+        cards: destItems,
+      },
+    });
+  }
+};
 
 const onDragStart = () => {
   if (window.navigator.vibrate) {

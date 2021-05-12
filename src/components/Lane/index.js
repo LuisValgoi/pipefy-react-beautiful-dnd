@@ -7,7 +7,7 @@ export default function Lane({ children, data, droppableId }) {
   return (
     <Droppable droppableId={droppableId}>
       {(provided, snapshot) => (
-        <LaneContent data={data} snapshot={snapshot} provided={provided}>
+        <LaneContent data={data} provided={provided}>
           {children}
           {provided.placeholder}
         </LaneContent>
@@ -16,9 +16,9 @@ export default function Lane({ children, data, droppableId }) {
   );
 }
 
-const LaneContent = ({ children, data, provided, snapshot }) => {
+const LaneContent = ({ children, data, provided }) => {
   return (
-    <div {...provided.droppableProps} isDraggingOver={snapshot.isDraggingOver} ref={provided.innerRef}>
+    <div {...provided.droppableProps} ref={provided.innerRef}>
       <Styles.Container done={data.done}>
         <ul>{children}</ul>
       </Styles.Container>

@@ -38,10 +38,6 @@ To copy the pipefy user interface to use the `react-beautiful-dnd`.
 
 - `import { Container } from './styles'`: to embed the div and the style of your component.
 
-# Notes Drag And Drop
-
-- 
-
 # Fonts Used
 
 - [roboto](https://fonts.google.com/specimen/Roboto)
