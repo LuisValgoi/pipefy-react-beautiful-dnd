@@ -1,6 +1,6 @@
 # Status
 
-- [![Netlify Status](https://api.netlify.com/api/v1/badges/e7e7474a-c79f-4949-965f-80da6216715b/deploy-status)](https://app.netlify.com/sites/pipefy-react-beautiful-dnd/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e7e7474a-c79f-4949-965f-80da6216715b/deploy-status)](https://app.netlify.com/sites/pipefy-react-beautiful-dnd/deploys)
 
 # Objective
 
