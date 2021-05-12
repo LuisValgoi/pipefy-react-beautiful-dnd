@@ -1,12 +1,19 @@
-import React, { useRef } from "react";
+import React from "react";
+import { Draggable } from "react-beautiful-dnd";
 
 import * as Styles from "./styles";
 
-export default function Card({ data }) {
-  const ref = useRef();
-
+export default function Card({ data, index }) {
   return (
-    <Styles.Container ref={ref}>
+    <Draggable key={data.id} draggableId={data.id} index={index}>
+      {(provided, snapshot) => <CardContent data={data} provided={provided} snapshot={snapshot} />}
+    </Draggable>
+  );
+}
+
+const CardContent = ({ data, provided, snapshot }) => {
+  return (
+    <Styles.Container ref={provided.innerRef} isDragging={snapshot.isDragging} {...provided.draggableProps} {...provided.dragHandleProps}>
       <header>
         {data.labels.map((label) => (
           <Styles.Label key={label} color={label} />
@@ -16,4 +23,4 @@ export default function Card({ data }) {
       {data.user && <img src={data.user} alt="" />}
     </Styles.Container>
   );
-}
+};

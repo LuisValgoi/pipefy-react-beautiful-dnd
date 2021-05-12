@@ -32,18 +32,7 @@ export const Container = styled.div`
   ${(props) =>
     props.isDragging &&
     css`
-      border: 2px dashed rgba(0, 0, 0, 0.2);
-      padding-top: 31px;
-      border-radius: 0;
-      background: transparent;
-      box-shadow: none;
-      cursor: grabbing;
-
-      p,
-      img,
-      span {
-        opacity: 0;
-      }
+      background-color: rgba(230, 230, 245, 0.9);
     `}
 `;
 
