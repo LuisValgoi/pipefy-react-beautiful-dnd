@@ -14,6 +14,20 @@ To copy the pipefy user interface to use the `react-beautiful-dnd`.
 
 - `react-icons`: to use icons in the app (includes material-icons, font-awesome, ionicals, etc).
 
+- `uuid`: to generate unique ids;
+
+- `react-beautiful-dnd`: to use the drag and drop within the cards;
+
+# Notes Drag'nDrop (react-beautiful-dnd)
+
+- `DragDropContext`: provider so the drag and drop can work.
+
+- `onDragEnd`: only Required. The trigger when ends the dragging.
+
+- `Droppable`: where actual drag and drop will happen.
+
+- `Draggable`: where it lets you move the dragging item to another element.
+
 # Notes CSS
 
 - `box-sizing: border-box;`: to not extrapolate the element's height and width.
